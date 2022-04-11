@@ -37,18 +37,28 @@ public class MainActivity extends AppCompatActivity {
         if (mShowCount != null) {
             mShowCount.setText(Integer.toString(mCount));
         }
-        //Nếu kết quả mCount nhận về số chẵn thì set màu button Count = RED
+          //Cách 1: Sử dụng thêm biến tạm mCountUp
+//        //Nếu kết quả mCount nhận về số chẵn thì set màu button Count = RED
+//        if(mCount % 2 == 0){
+//            mCountUp.setBackgroundColor(Color.RED);
+//        //Ngược lại thì set màu button Count = BLUE
+//        }else{
+//            mCountUp.setBackgroundColor(Color.BLUE);
+//        }
+//        //Nếu biến mCount khác 0, tức là button Zero có thể kích hoạt, set màu button Zero = GREEN
+//        if(mCount != 0) {
+//            mZeroBack.setBackgroundColor(Color.GREEN);
+//        }
+        // Cách 2: Sử dụng trực tiếp tham số View view
         if(mCount % 2 == 0){
-            mCountUp.setBackgroundColor(Color.RED);
-        //Ngược lại thì set màu button Count = BLUE
-        }else{
-            mCountUp.setBackgroundColor(Color.BLUE);
+            view.setBackgroundColor(Color.RED);
         }
-        //Nếu biến mCount khác 0, tức là button Zero có thể kích hoạt, set màu button Zero = GREEN
-        if(mCount != 0) {
+        else{
+            view.setBackgroundColor(Color.BLUE);
+        }
+        if(mCount != 0){
             mZeroBack.setBackgroundColor(Color.GREEN);
         }
-
     }
     // Đưa giá trị trong TextView về 0 khi người dùng ấn button Zero
     public void backToZero(View view) {
